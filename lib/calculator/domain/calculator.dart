@@ -1,15 +1,29 @@
 import 'package:conduit_coding_test/calculator/type/operation_type.dart';
+import 'package:decimal/decimal.dart';
 
 import 'operation.dart';
 
-class Calculator {
-  const Calculator();
+/// 계산기
+abstract class Calculator {
+  String calculate(
+    String left,
+    String right,
+    OperationType operation,
+  );
+}
 
-  static double calculator(
-    double left,
-    double right,
+class CalculatorImpl implements Calculator {
+  const CalculatorImpl();
+
+  @override
+  String calculate(
+    String left,
+    String right,
     OperationType operation,
   ) {
-    return Operation.from(operation).calculate(left, right);
+    final leftDecimal = Decimal.parse(left);
+    final rightDecimal = Decimal.parse(right);
+    final result =  Operation.from(operation).calculate(leftDecimal, rightDecimal);
+    return result.toString();
   }
 }

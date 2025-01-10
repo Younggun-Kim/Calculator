@@ -16,7 +16,6 @@ enum OperationType {
       );
 }
 
-
 extension OperationTypeEx on OperationType {
   bool get isNone => this == OperationType.none;
 }

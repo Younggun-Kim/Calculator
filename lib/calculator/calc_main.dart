@@ -14,14 +14,14 @@ void main() {
     "\n",
   );
 
-  String? leftOperand = stdin.readLineSync();
+  String? leftInput = stdin.readLineSync();
 
-  if (leftOperand == 'q' || leftOperand == 'exit') {
+  if (leftInput == 'q' || leftInput == 'exit') {
     stdout.writeln('계산기를 종료합니다. 이용해주셔서 감사합니다!');
     return;
   }
 
-  if (leftOperand == null || double.tryParse(leftOperand) == null) {
+  if (leftInput == null || double.tryParse(leftInput) == null) {
     stdout.writeln('올바른 숫자를 입력해주세요.');
     return;
   }
@@ -63,10 +63,9 @@ void main() {
     return;
   }
 
+  final Calculator calculator = CalculatorImpl();
+  final result = calculator.calculate(leftInput, rightInput, operation);
 
-  final leftNumber = double.parse(leftOperand);
-  final rightNumber = double.parse(rightInput);
-  final result = Calculator.calculator(leftNumber, rightNumber, operation);
-
+  print(result);
   stdout.writeln('계산 결과 >>> $result');
 }

@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:conduit_coding_test/calculator/type/operation_type.dart';
+import 'package:decimal/decimal.dart';
+
+import 'exceptions.dart';
 
 abstract class Operation {
-  double calculate(double left, double right);
+  Decimal calculate(Decimal left, Decimal right);
 
   factory Operation.from(OperationType type) {
     switch (type) {
@@ -21,7 +26,7 @@ abstract class Operation {
 
 class NoneOperation implements Operation {
   @override
-  double calculate(double left, double right) {
+  Decimal calculate(Decimal left, Decimal right) {
     // TODO: implement calculate
     throw UnimplementedError();
   }
@@ -29,28 +34,32 @@ class NoneOperation implements Operation {
 
 class Add implements Operation {
   @override
-  double calculate(double left, double right) {
+  Decimal calculate(Decimal left, Decimal right) {
     return left + right;
   }
 }
 
 class Subtract implements Operation {
   @override
-  double calculate(double left, double right) {
+  Decimal calculate(Decimal left, Decimal right) {
     return left - right;
   }
 }
 
 class Multiply implements Operation {
   @override
-  double calculate(double left, double right) {
+  Decimal calculate(Decimal left, Decimal right) {
     return left * right;
   }
 }
 
 class Divide implements Operation {
   @override
-  double calculate(double left, double right) {
-    return left / right;
+  Decimal calculate(Decimal left, Decimal right) {
+    if (right == Decimal.zero) {
+      throw DivideByZeroException();
+    }
+    ;
+    return (left / right).toDecimal(scaleOnInfinitePrecision: 10);
   }
 }
