@@ -1,20 +1,23 @@
-# conduit_coding_test
+# Conduit coding test
 
-Conduit Coding Test
+Conduit coding test
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### 1. 프로젝트 클론
 
-A few resources to get you started if this is your first Flutter project:
+```bash
+git clone https://github.com/Younggun-Kim/Calculator.git
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 2. 프로젝트 내에서 `calculator_main.dart` 실행
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+dart run lib/calculator/calculator_main.dart
+```
 
+### 3. 테스트 실행
 
-## Use Case
-- 
+```bash
+flutter test
+```
