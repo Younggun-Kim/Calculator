@@ -10,13 +10,18 @@ Conduit coding test
 git clone https://github.com/Younggun-Kim/Calculator.git
 ```
 
-### 2. 프로젝트 내에서 `calculator_main.dart` 실행
+### 2. 라이브러리 설치
+```bash
+flutter pub get
+```
+
+### 3. 프로젝트 내에서 `calculator_main.dart` 실행
 
 ```bash
 dart run lib/calculator/calculator_main.dart
 ```
 
-### 3. 테스트 실행
+### 4. 테스트 실행
 
 ```bash
 flutter test
