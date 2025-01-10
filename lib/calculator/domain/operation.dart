@@ -26,8 +26,7 @@ abstract class Operation {
 class NoneOperation implements Operation {
   @override
   Decimal calculate(Decimal left, Decimal right) {
-    // TODO: implement calculate
-    throw UnimplementedError();
+    throw UnsupportedOperationException();
   }
 }
 
